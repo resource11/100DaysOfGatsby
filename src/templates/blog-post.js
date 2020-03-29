@@ -6,6 +6,7 @@ import Img from "gatsby-image"
 
 export default ({ data }) => {
   const post = data.markdownRemark
+  // find the fluid image
   let featuredImgFluid = post.frontmatter.featuredImage.childImageSharp.fluid
   return (
     <Layout>
@@ -29,6 +30,7 @@ export const query = graphql`
         title
         featuredImage {
           childImageSharp {
+            # this is the
             fluid(maxWidth: 800) {
               ...GatsbyImageSharpFluid
             }

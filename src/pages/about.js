@@ -35,10 +35,10 @@ export const query = graphql`
         title
       }
     }
-    file(relativePath: { eq: "images/icon.png" }) {
+    file(relativePath: { eq: "images/daylilies-in-july.jpg" }) {
       childImageSharp {
         # Specify the image processing specifications right in the query.
-        fluid {
+        fluid(maxWidth: 400, maxHeight: 250) {
           ...GatsbyImageSharpFluid
         }
       }

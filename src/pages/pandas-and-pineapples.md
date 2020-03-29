@@ -1,7 +1,7 @@
 ---
 title: "Pandas and Pineapples"
 date: "2017-08-15"
-featuredImage: ../images/icon.png
+featuredImage: ../images/disney-cruise-bar.jpg
 ---
 
 Do Pandas eat pineapples? Check out this short video that shows that yes! pandas do

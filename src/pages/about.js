@@ -1,5 +1,5 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import SEO from "../components/seo"
 import Layout from "../components/layout"
 import Img from "gatsby-image"
@@ -18,18 +18,9 @@ export default ({ data }) => {
     </Layout>
   )
 }
-// export const query = graphql`
-//   query {
-//     site {
-//       siteMetadata {
-//         title
-//       }
-//     }
-//   }
-// `
 
 export const query = graphql`
-  query siteInformation {
+  query {
     site {
       siteMetadata {
         title
@@ -45,16 +36,3 @@ export const query = graphql`
     }
   }
 `
-
-// const data = useStaticQuery(graphql`
-//   query {
-//     file(relativePath: { eq: "images/corgi.jpg" }) {
-//       childImageSharp {
-//         # Specify the image processing specifications right in the query.
-//         fluid {
-//           ...GatsbyImageSharpFluid
-//         }
-//       }
-//     }
-//   }
-// `)

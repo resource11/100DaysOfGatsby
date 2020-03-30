@@ -5,7 +5,7 @@
 }
 
 .withSidebar {
-  overflow: hidden;
+  overflow: auto;
 }
 
 .withSidebar > * {

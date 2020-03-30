@@ -1,10 +1,27 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 import SEO from "../components/seo"
 import Layout from "../components/layout"
 import Img from "gatsby-image"
 
-export default ({ data }) => {
+export default () => {
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+      file(relativePath: { eq: "images/daylilies-in-july.jpg" }) {
+        childImageSharp {
+          # Specify the image processing specifications right in the query.
+          fluid(maxWidth: 400, maxHeight: 250) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `)
   let featuredImgFluid = data.file.childImageSharp.fluid
   return (
     <Layout>
@@ -18,21 +35,3 @@ export default ({ data }) => {
     </Layout>
   )
 }
-
-export const query = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    file(relativePath: { eq: "images/daylilies-in-july.jpg" }) {
-      childImageSharp {
-        # Specify the image processing specifications right in the query.
-        fluid(maxWidth: 400, maxHeight: 250) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-  }
-`

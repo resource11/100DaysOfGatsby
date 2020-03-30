@@ -15,8 +15,8 @@ export default () => {
       file(relativePath: { eq: "images/daylilies-in-july.jpg" }) {
         childImageSharp {
           # Specify the image processing specifications right in the query.
-          fluid(maxWidth: 400, maxHeight: 250) {
-            ...GatsbyImageSharpFluid
+          fixed(width: 400, height: 400, grayscale: true) {
+            ...GatsbyImageSharpFixed
           }
         }
       }
@@ -27,7 +27,10 @@ export default () => {
     <Layout>
       <SEO title={data.site.siteMetadata.title} />
       <h1>About {data.site.siteMetadata.title}</h1>
-      <Img fluid={featuredImgFluid} />
+      <Img
+        fixed={data.file.childImageSharp.fixed}
+        alt="Daylilies in the warm summer garden"
+      />
       <p>
         We're the only site running on your computer dedicated to showing the
         best photos and videos of pandas eating lots of food.

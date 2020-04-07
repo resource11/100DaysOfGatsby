@@ -33,7 +33,8 @@
     "react-helmet": "^5.2.1",
     "react-typography": "^0.16.19",
     "typography": "^0.16.19",
-    "typography-theme-kirkham": "^0.16.19"
+    "typography-theme-kirkham": "^0.16.19",
+    "yup": "^0.28.3"
   },
   "devDependencies": {
     "prettier": "^2.0.2"

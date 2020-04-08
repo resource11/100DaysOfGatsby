@@ -22,7 +22,7 @@ export default () => {
       }
     }
   `)
-  let featuredImgFluid = data.file.childImageSharp.fluid
+  // let featuredImgFluid = data.file.childImageSharp.fluid
   return (
     <Layout>
       <SEO title={data.site.siteMetadata.title} />

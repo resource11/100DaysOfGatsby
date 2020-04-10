@@ -51,79 +51,25 @@ const SignupForm = () => {
       {/* Formik component is a React Context-powered Component. 
       It connects the state/methods from the Formik component 
       to the Form and other components */}
-      <Formik
-        initialValues={{
-          name: "",
-          email: "",
-          message: "",
-        }}
-        validationSchema={Yup.object({
-          name: Yup.string().required("Please enter a name"),
-          email: Yup.string().required("Please enter an email address"),
-          message: Yup.string().required("Please enter a message"),
-        })}
-        // used the onSubmit handler from gatsby-theme-getstats
-        // here because it works
-        onSubmit={(values, { setSubmitting, resetForm }) => {
-          const encode = (data) => {
-            return Object.keys(data)
-              .map(
-                (key) =>
-                  encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
-              )
-              .join("&")
-          }
-          // fetch("/?no-cache=1", {
-          //   method: "POST",
-          //   headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          //   body: encode({ "form-name": "contact", ...values }),
-          // })
-          fetch("/", {
-            method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: encode({ "form-name": "contact", ...values }),
-          })
-            .then(() => {
-              setTimeout(() => {
-                console.log("form details: ", ...values)
-                setSubmitting(false)
-              }, 2000)
-            })
-            .catch((error) => {
-              console.log("form error: ", error)
-              setSubmitting(false)
-            })
-        }}
+
+      <form
+        name="contact"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        method="POST"
+        // action="/success"
       >
-        {/* Using the formik Form component was problematic, so I used a standard JSX form */}
-        <form
-          name="contact"
-          data-netlify="true"
-          data-netlify-honeypot="bot-field"
-          method="POST"
-          // action="/success"
-        >
-          <MyTextInput name="bot-field" type="hidden" />
-          <MyTextInput
-            label="Name"
-            name="name"
-            type="text"
-            placeholder="Jane"
-          />
-          <MyTextInput
-            label="Email Address"
-            name="email"
-            type="email"
-            placeholder="jane@formik.com"
-          />
-          <MyTextArea
-            label="Message"
-            name="textarea"
-            placeholder="enter message"
-          />
-          <button type="submit">Submit</button>
-        </form>
-      </Formik>
+        {/* <MyTextInput name="bot-field" type="hidden" /> */}
+
+        <input name="bot-field" type="hidden" />
+        <label htmlFor="name">Name</label>
+        <input className="textInput" name="name" />
+        <label htmlFor="email">Email</label>
+        <input className="textInput" name="email" />
+        <label htmlFor="message">Message</label>
+        <textarea className="textArea" name="message" />
+        <button type="submit">Submit</button>
+      </form>
     </>
   )
 }

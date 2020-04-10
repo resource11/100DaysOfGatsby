@@ -2,6 +2,7 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import SEO from "../components/seo"
 import Layout from "../components/layout"
+import SignupForm from "../components/signupForm"
 import Img from "gatsby-image"
 
 export default () => {
@@ -35,6 +36,7 @@ export default () => {
         We're the only site running on your computer dedicated to showing the
         best photos and videos of pandas eating lots of food.
       </p>
+      <SignupForm />
     </Layout>
   )
 }

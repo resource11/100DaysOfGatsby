@@ -58,17 +58,11 @@ const SignupForm = () => {
             .required("Required"),
           message: Yup.string().required("Required"),
         })}
-        // onSubmit={(values, { setSubmitting }) => {
-        // setTimeout(() => {
-        //   alert(JSON.stringify(values, null, 2))
-        //   setSubmitting(false)
-        // }, 400)
-        // }}
         onSubmit={(values, actions) => {
           fetch("/", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: encode({ "form-name": "contact", ...values }),
+            body: encode({ "form-name": "contact-kathleen", ...values }),
           })
             .then(() => {
               setTimeout(() => {
@@ -83,7 +77,11 @@ const SignupForm = () => {
             .finally(() => actions.setSubmitting(false))
         }}
       >
-        <Form name="contact" data-netlify="true" netlify-honeypot="bot-field">
+        <Form
+          name="contact-kathleen"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+        >
           <MyTextInput name="bot-field" type="hidden" />
           <MyTextInput
             label="Name"
@@ -104,23 +102,6 @@ const SignupForm = () => {
           />
           <button type="submit">Submit</button>
         </Form>
-        {/* <form
-          name="contact"
-          data-netlify="true"
-          data-netlify-honeypot="bot-field"
-          method="POST"
-        > */}
-        {/* <MyTextInput name="bot-field" type="hidden" /> */}
-
-        {/* <input name="bot-field" type="hidden" />
-          <label htmlFor="name">Name</label>
-          <input className="textInput" name="name" />
-          <label htmlFor="email">Email</label>
-          <input className="textInput" name="email" />
-          <label htmlFor="message">Message</label>
-          <textarea className="textArea" name="message" />
-          <button type="submit">Submit</button>
-        </form> */}
       </Formik>
     </>
   )

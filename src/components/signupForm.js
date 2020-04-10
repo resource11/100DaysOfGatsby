@@ -1,9 +1,6 @@
 import React from "react"
 import { Formik, useField } from "formik"
 import * as Yup from "yup"
-// import styled from "@emotion/styled"
-// import "./styles.css"
-// import "./styles-custom.css"
 
 const MyTextInput = ({ label, ...props }) => {
   // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
@@ -36,6 +33,18 @@ const MyTextArea = ({ label, ...props }) => {
 }
 
 const SignupForm = () => {
+  // handleSubmit = (e) => {
+  //   fetch("/", {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/x-www-form-urlencoded" },
+  //     body: encode({ "form-name": "contact", ...values }),
+  //   })
+  //     .then(() => alert("Success!"))
+  //     .catch((error) => alert(error))
+
+  //   e.preventDefault()
+  // }
+
   return (
     <>
       <h2>Subscribe!</h2>
@@ -64,7 +73,12 @@ const SignupForm = () => {
               )
               .join("&")
           }
-          fetch("/?no-cache=1", {
+          // fetch("/?no-cache=1", {
+          //   method: "POST",
+          //   headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          //   body: encode({ "form-name": "contact", ...values }),
+          // })
+          fetch("/", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: encode({ "form-name": "contact", ...values }),
@@ -73,7 +87,6 @@ const SignupForm = () => {
               setTimeout(() => {
                 console.log("form details: ", ...values)
                 setSubmitting(false)
-                resetForm()
               }, 2000)
             })
             .catch((error) => {
@@ -88,7 +101,7 @@ const SignupForm = () => {
           data-netlify="true"
           data-netlify-honeypot="bot-field"
           method="POST"
-          action="/success"
+          // action="/success"
         >
           <MyTextInput name="bot-field" type="hidden" />
           <MyTextInput

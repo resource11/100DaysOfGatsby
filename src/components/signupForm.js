@@ -1,5 +1,5 @@
 import React from "react"
-import { Formik, Form, useField } from "formik"
+import { Formik, useField } from "formik"
 import * as Yup from "yup"
 // import styled from "@emotion/styled"
 // import "./styles.css"
@@ -35,18 +35,7 @@ const MyTextArea = ({ label, ...props }) => {
   )
 }
 
-// const StyledLabel = styled.label`
-//   margin-top: 1rem;
-// `
-
 const SignupForm = () => {
-  // const formik = useFormik({
-  //   initialValues: { email: "" },
-  //   onSubmit: (values) => {
-  //     alert(JSON.stringify(values, null, 2))
-  //   },
-  // })
-
   return (
     <>
       <h2>Subscribe!</h2>
@@ -64,13 +53,8 @@ const SignupForm = () => {
           email: Yup.string().required("Please enter an email address"),
           message: Yup.string().required("Please enter a message"),
         })}
-        // onSubmit={(values, { setSubmitting }) => {
-        //   setTimeout(() => {
-        //     alert(JSON.stringify(values, null, 2))
-        //     setSubmitting(false)
-        //   }, 400)
-        // }}
-
+        // used the onSubmit handler from gatsby-theme-getstats
+        // here because it works
         onSubmit={(values, { setSubmitting, resetForm }) => {
           const encode = (data) => {
             return Object.keys(data)
@@ -87,7 +71,7 @@ const SignupForm = () => {
           })
             .then(() => {
               setTimeout(() => {
-                alert(JSON.stringify(values, null, 2))
+                console.log("form details: ", ...values)
                 setSubmitting(false)
                 resetForm()
               }, 2000)
@@ -98,19 +82,14 @@ const SignupForm = () => {
             })
         }}
       >
-        {/* You do not need to pass in onSubmit handler since 
-        the provider passes it in. What about the post method and action, though? */}
-        {/* <Form> */}
+        {/* Using the formik Form component was problematic, so I used a standard JSX form */}
         <form
-          // {...rest}
           name="contact"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
           method="POST"
-          // onSubmit={formik.handleSubmit}
-          action="#"
+          action="/success"
         >
-          {/* <input type="hidden" name="bot-field" /> */}
           <MyTextInput name="bot-field" type="hidden" />
           <MyTextInput
             label="Name"
@@ -131,7 +110,6 @@ const SignupForm = () => {
           />
           <button type="submit">Submit</button>
         </form>
-        {/* </Form> */}
       </Formik>
     </>
   )

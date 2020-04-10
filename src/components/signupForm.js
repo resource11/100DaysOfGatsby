@@ -12,7 +12,22 @@ const MyTextInput = ({ label, ...props }) => {
   return (
     <>
       <label htmlFor={props.id || props.name}>{label}</label>
-      <input className="text-input" {...field} {...props} />
+      <input className="textInput" {...field} {...props} />
+      {meta.touched && meta.error ? (
+        <div className="error">{meta.error}</div>
+      ) : null}
+    </>
+  )
+}
+
+const MyTextArea = ({ label, ...props }) => {
+  // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
+  // which we can spread on <input> and alse replace ErrorMessage entirely.
+  const [field, meta] = useField(props)
+  return (
+    <>
+      <label htmlFor={props.id || props.name}>{label}</label>
+      <textarea className="textArea" {...field} {...props} />
       {meta.touched && meta.error ? (
         <div className="error">{meta.error}</div>
       ) : null}
@@ -40,20 +55,14 @@ const SignupForm = () => {
       to the Form and other components */}
       <Formik
         initialValues={{
-          firstName: "",
-          lastName: "",
+          name: "",
           email: "",
+          message: "",
         }}
         validationSchema={Yup.object({
-          firstName: Yup.string()
-            .max(15, "Must be 15 characters or less")
-            .required("Required"),
-          lastName: Yup.string()
-            .max(20, "Must be 20 characters or less")
-            .required("Required"),
-          email: Yup.string()
-            .email("Invalid email addresss`")
-            .required("Required"),
+          name: Yup.string().required("Please enter a name"),
+          email: Yup.string().required("Please enter an email address"),
+          message: Yup.string().required("Please enter a message"),
         })}
         // onSubmit={(values, { setSubmitting }) => {
         //   setTimeout(() => {
@@ -98,28 +107,27 @@ const SignupForm = () => {
           data-netlify="true"
           data-netlify-honeypot="bot-field"
           method="POST"
-          onSubmit={Formik.handleSubmit}
+          // onSubmit={formik.handleSubmit}
           action="#"
         >
           {/* <input type="hidden" name="bot-field" /> */}
           <MyTextInput name="bot-field" type="hidden" />
           <MyTextInput
-            label="First Name"
-            name="firstName"
+            label="Name"
+            name="name"
             type="text"
             placeholder="Jane"
-          />
-          <MyTextInput
-            label="Last Name"
-            name="lastName"
-            type="text"
-            placeholder="Doe"
           />
           <MyTextInput
             label="Email Address"
             name="email"
             type="email"
             placeholder="jane@formik.com"
+          />
+          <MyTextArea
+            label="Message"
+            name="textarea"
+            placeholder="enter message"
           />
           <button type="submit">Submit</button>
         </form>

@@ -1,0 +1,34 @@
+---
+title: "MDX no default export"
+date: 2019-01-31
+author: "Kathleen McMahon"
+path: /mdx-no-default-export
+featuredImage: ../images/disney-cruise-bar.jpg
+---
+
+import { SignupForm } from "../components/signupForm"
+
+## MDX file without a default export
+
+Not sure if we want to use the frontmatter GraphQL query in this file though. This page does not use a default export, so it will take on the default layout set by the gatsby-config file.
+
+![Colorful group of umbrellas nestled on the soft tropical sands of Castaway Cay](./castaway-key-umbrellas-closeup.jpg)
+
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/4SZl1r2O_bY"
+  frameborder="0"
+  allowfullscreen
+></iframe>
+
+### Where do I start with this nested file?
+
+The documentation offers guides for all different skill levels, you can
+find more info at the Gatsby's [Quick Start page](https://www.gatsbyjs.org/docs/quick-start)
+
+<!-- This default export overrides the default layout set in the
+gasby-config.js file ensuring that the FAQ component isn't wrapped
+by other elements -->
+
+<SignupForm />

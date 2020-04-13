@@ -1,0 +1,80 @@
+---
+title: "This is More MDX"
+date: 2019-01-30
+author: "Kathleen McMahon"
+path: /this-is-more-mdx
+featuredImage: ../images/disney-cruise-bar.jpg
+---
+
+import { graphql } from "gatsby"
+import ThisIsMdx from "./this-is-mdx.mdx"
+
+export default ThisIsMdx
+
+<h1>Frontmatter title {props.pageContext.frontmatter.title}</h1>
+<p>Frontmatter author{props.pageContext.frontmatter.author}</p>
+
+---
+
+## Can you write more MDX and import a separate MDX file?
+
+Yes you can! This page is an MDX file that is importing another MDX file. This page uses a default export, so it won't take on the default layout set by the gatsby-config file.
+
+![Colorful group of umbrellas nestled on the soft tropical sands of Castaway Cay](../images/castaway-key-umbrellas-closeup.jpg)
+
+### Where is the imported shortcode?
+
+It is imported right below this. Good times.
+
+<!-- This default export overrides the default layout set in the
+gasby-config.js file ensuring that the FAQ component isn't wrapped
+by other elements -->
+
+Passing children into the `<ThisIsMdx/>` component/shortcode below does nothing, because it is an MDX file.
+
+<ThisIsMdx children={`Testing456`}>Testing 123</ThisIsMdx>
+
+export default ({ children }) => <>{children}</>
+
+export const query = graphql`
+  query MyMoreMDXQuery {
+    allMdx {
+      edges {
+        node {
+          frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            title
+            path
+            featuredImage {
+              id
+            }
+          }
+          exports {
+            metadata {
+              author
+              title
+              path
+              date
+              featuredImage {
+                id
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`
+
+<!-- query MdxExports {
+  allMdx {
+    nodes {
+      exports {
+        metadata {
+          name
+          author
+        }
+      }
+    }
+  }
+} -->

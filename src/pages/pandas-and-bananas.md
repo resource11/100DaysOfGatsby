@@ -1,6 +1,7 @@
 ---
 title: "Pandas and Bananas"
 date: "2017-08-21"
+path: "/pandas-and-bananas"
 featuredImage: ../images/alaska-airlines-cabin-view.jpg
 ---
 

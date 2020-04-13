@@ -1,0 +1,65 @@
+---
+title: "This is MDX"
+date: 2019-01-29
+author: "Kathleen McMahon"
+path: /this-is-mdx
+# date: "2017-08-20"
+featuredImage: ../images/disney-cruise-bar.jpg
+---
+
+import { graphql } from "gatsby"
+export const metadata = {
+  title: "This is MDX",
+  date: "2019-01-29",
+  author: "Kathleen McMahon",
+  path: "/this-is-mdx",
+  featuredImage: "../images/disney-cruise-bar.jpg",
+}
+
+<h2>Metadata title is {metadata.title}</h2>
+<p>Metadata author is {metadata.author}</p>
+---
+
+## Can you write in MDX and use a GraphQL page query in MDX?
+
+Yes you can! This page is an MDX file that is exporting metadata. Not sure if we want to use the frontmatter GraphQL query in this file though. This page uses a default export, so it won't take on the default layout set by the gatsby-config file.
+
+![Colorful group of umbrellas nestled on the soft tropical sands of Castaway Cay](../images/castaway-key-umbrellas-closeup.jpg)
+
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/4SZl1r2O_bY"
+  frameborder="0"
+  allowfullscreen
+></iframe>
+
+### Where do I start with this nested file?
+
+The documentation offers guides for all different skill levels, you can
+find more info at the Gatsby's [Quick Start page](https://www.gatsbyjs.org/docs/quick-start)
+
+<!-- This default export overrides the default layout set in the
+gasby-config.js file ensuring that the FAQ component isn't wrapped
+by other elements -->
+
+export default ({ children }) => <>{children}</>
+
+export const query = graphql`
+  query MyMDXQuery {
+    allMdx {
+      edges {
+        node {
+          frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            title
+            path
+            featuredImage {
+              id
+            }
+          }
+        }
+      }
+    }
+  }
+`

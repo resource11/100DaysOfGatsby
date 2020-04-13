@@ -38,7 +38,7 @@ const encode = (data) => {
     .join("&")
 }
 
-const SignupForm = () => {
+export const SignupForm = () => {
   return (
     <>
       <h2>Subscribe!</h2>

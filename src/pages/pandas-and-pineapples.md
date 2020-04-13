@@ -1,6 +1,7 @@
 ---
 title: "Pandas and Pineapples"
 date: "2017-08-15"
+path: "/pandas-and-pineapples"
 featuredImage: ../images/disney-cruise-bar.jpg
 ---
 

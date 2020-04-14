@@ -13,6 +13,8 @@ module.exports = {
   plugins: [
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    // This allows gatsby to find files
+    // in the src folder
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -23,16 +25,45 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        name: `posts`,
+        path: `${__dirname}/src/posts/`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
         path: `${__dirname}/src/images`,
       },
     },
+    // Allow gatsby to create pages found in the posts
+    // folder. No gatsby-source-filesystem pointing
+    // to src/pages/posts folder needed here, because the posts
+    // folder is nested in the src/pages folder
     {
       resolve: "gatsby-plugin-page-creator",
       options: {
         path: `${__dirname}/src/posts`,
       },
     },
-    `gatsby-plugin-mdx`,
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        defaultLayouts: {
+          default: require.resolve("./src/templates/default-mdx-layout.js"),
+          posts: require.resolve("./src/templates/mdx-blog-post-layout.js"),
+        },
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              linkImagesToOriginal: false,
+              maxWidth: 1000,
+              maxHeight: 250,
+            },
+          },
+        ],
+      },
+    },
     {
       resolve: `gatsby-transformer-remark`,
       options: {

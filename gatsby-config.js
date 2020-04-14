@@ -49,10 +49,8 @@ module.exports = {
       resolve: `gatsby-plugin-mdx`,
       options: {
         defaultLayouts: {
-          default: require.resolve(
-            `${__dirname}/src/templates/default-mdx-layout.js`
-          ),
-          posts: require.resolve(`${__dirname}/src/templates/test-layout.js`),
+          default: require.resolve(`./src/templates/default-mdx-layout.js`),
+          posts: require.resolve(`./src/templates/post-mdx-layout.js`),
         },
         gatsbyRemarkPlugins: [
           {

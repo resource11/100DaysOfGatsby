@@ -7,7 +7,7 @@ export default ({ children }) => {
     <Layout>
       {/* <SEO title={post.frontmatter.title} description={post.excerpt} /> */}
       <article>
-        <header>testing 123</header>
+        <header>testing 123why</header>
         <div>{children}</div>
       </article>
     </Layout>

@@ -32,6 +32,13 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        name: `posts`,
+        path: `${__dirname}/content/blog/`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
         path: `${__dirname}/src/images`,
       },
     },
@@ -51,6 +58,7 @@ module.exports = {
         defaultLayouts: {
           default: require.resolve(`./src/templates/default-mdx-layout.js`),
           posts: require.resolve(`./src/templates/post-mdx-layout.js`),
+          posts: require.resolve(`./src/templates/blog-mdx-layout.js`),
         },
         gatsbyRemarkPlugins: [
           {

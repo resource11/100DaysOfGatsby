@@ -17,6 +17,7 @@
     "@emotion/core": "^10.0.28",
     "@mdx-js/mdx": "^1.5.8",
     "@mdx-js/react": "^1.5.8",
+    "@pauliescanlon/gatsby-mdx-embed": "0.0.17",
     "formik": "^2.1.4",
     "gatsby": "^2.20.8",
     "gatsby-image": "^2.3.1",

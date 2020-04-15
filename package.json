@@ -13,7 +13,7 @@
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "serve": "gatsby serve",
     "start": "npm run develop",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "test": "jest",
     "test:e2e": "start-server-and-test develop http://localhost:8000 cy:open",
     "test:e2e:ci": "start-server-and-test develop http://localhost:8000 cy:run"
   },
@@ -48,11 +48,17 @@
   },
   "devDependencies": {
     "@testing-library/cypress": "^6.0.0",
+    "@testing-library/jest-dom": "^5.5.0",
     "@testing-library/react": "^10.0.2",
     "axe-core": "^3.5.3",
+    "babel-jest": "^25.3.0",
+    "babel-preset-gatsby": "^0.3.1",
     "cypress": "^4.4.0",
     "cypress-axe": "^0.8.1",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^25.3.0",
     "prettier": "^2.0.2",
+    "react-test-renderer": "^16.13.1",
     "start-server-and-test": "^1.11.0"
   },
   "repository": {

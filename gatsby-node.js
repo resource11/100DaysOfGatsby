@@ -109,7 +109,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       component: path.resolve(`./src/templates/blog-mdx-layout.js`),
       // You can use the values in this context in
       // our page layout component
-      context: { id: node.id, body: node.body },
+      context: {
+        id: node.id,
+        body: node.body,
+        frontmatter: node.frontmatter,
+        excerpt: node.excerpt,
+      },
     })
   })
 }

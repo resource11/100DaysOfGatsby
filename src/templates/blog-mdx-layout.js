@@ -6,9 +6,15 @@ import SEO from "../components/seo"
 export default ({ pageContext }) => {
   return (
     <Layout>
-      {/* <SEO title={post.frontmatter.title} description={post.excerpt} /> */}
+      <SEO
+        title={pageContext.frontmatter.title}
+        description={pageContext.excerpt}
+      />
       <article>
-        <header>aaaand 789</header>
+        <header>
+          aaaand 789
+          <h1>{pageContext.frontmatter.title}</h1>
+        </header>
         <div>
           <MDXRenderer>{pageContext.body}</MDXRenderer>
         </div>

@@ -1,20 +1,18 @@
 import React from "react"
-import { MDXProvider, MDXRenderer } from "@mdx-js/react"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-export default ({ data }) => {
+export default ({ pageContext }) => {
   return (
-    <MDXProvider>
-      <Layout>
-        {/* <SEO title={post.frontmatter.title} description={post.excerpt} /> */}
-        <article>
-          <header>aaaand 789</header>
-          <div>
-            <MDXRenderer>{data.body}</MDXRenderer>
-          </div>
-        </article>
-      </Layout>
-    </MDXProvider>
+    <Layout>
+      {/* <SEO title={post.frontmatter.title} description={post.excerpt} /> */}
+      <article>
+        <header>aaaand 789</header>
+        <div>
+          <MDXRenderer>{pageContext.body}</MDXRenderer>
+        </div>
+      </article>
+    </Layout>
   )
 }

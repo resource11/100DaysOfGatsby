@@ -54,6 +54,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
               slug
             }
             body
+            excerpt
+            frontmatter {
+              author
+              date
+              path
+              title
+            }
           }
         }
       }
@@ -92,16 +99,17 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   // Create MDX blog post pages.
   // you'll call `createPage` for each result
-  mdxPosts.forEach(({ node }, index) => {
+  mdxPosts.forEach(({ node }) => {
     createPage({
       // This is the slug you created before
       // (or `node.frontmatter.slug`)
       path: node.fields.slug,
+      // path: node.frontmatter.slug,
       // This component will wrap our MDX content
       component: path.resolve(`./src/templates/blog-mdx-layout.js`),
       // You can use the values in this context in
       // our page layout component
-      context: { id: node.id },
+      context: { id: node.id, body: node.body },
     })
   })
 }

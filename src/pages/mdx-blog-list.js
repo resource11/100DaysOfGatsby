@@ -12,11 +12,11 @@ export default ({ data }) => {
 
   return (
     <Layout>
-      <SEO title={`MDX Blog List`} />
+      <SEO title={`All MDX files listed here`} />
       <article>
         <header>
           <h1>
-            MDX Blog List{" "}
+            All MDX files listed here{" "}
             <small
               css={css`
                 color: slategrey;

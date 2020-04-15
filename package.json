@@ -6,12 +6,16 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
+    "clean": "gatsby clean",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "start": "npm run develop",
     "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "start": "npm run develop",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "test:e2e": "start-server-and-test develop http://localhost:8000 cy:open",
+    "test:e2e:ci": "start-server-and-test develop http://localhost:8000 cy:run"
   },
   "dependencies": {
     "@emotion/core": "^10.0.28",
@@ -43,7 +47,13 @@
     "yup": "^0.28.3"
   },
   "devDependencies": {
-    "prettier": "^2.0.2"
+    "@testing-library/cypress": "^6.0.0",
+    "@testing-library/react": "^10.0.2",
+    "axe-core": "^3.5.3",
+    "cypress": "^4.4.0",
+    "cypress-axe": "^0.8.1",
+    "prettier": "^2.0.2",
+    "start-server-and-test": "^1.11.0"
   },
   "repository": {
     "type": "git",

@@ -7,8 +7,13 @@
 module.exports = {
   siteMetadata: {
     title: `Pandas Eating Lots`,
+    author: `Kathleen McMahon`,
+    titleTemplate: "%s · The Real Hero",
     description: `A simple description about pandas eating lots...`,
-    author: `gatsbyjs`,
+    url: "https://kathleenmcmahon.netlify.app", // No trailing slash allowed!
+    siteUrl: `https://kathleenmcmahon.netlify.app`,
+    image: "/images/icon.png", // Path to your image you placed in the 'static' folder
+    twitterUsername: "@resource11",
   },
   plugins: [
     `gatsby-transformer-sharp`,
@@ -110,5 +115,6 @@ module.exports = {
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     `@pauliescanlon/gatsby-mdx-embed`,
+    `gatsby-plugin-advanced-sitemap`,
   ],
 }

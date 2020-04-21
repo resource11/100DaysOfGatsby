@@ -1,0 +1,17 @@
+.image-grid {
+  display: grid;
+  grid-gap: 0.625rem;
+  grid-template-columns: repeat(auto-fill, minmax(15.625rem, 1fr));
+  grid-auto-rows: minmax(3.125rem, auto);
+}
+.image-grid .image-item:nth-child(5n) {
+  grid-column-end: span 2;
+}
+.image-grid img {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* The above styling renders your image gallery into a beautiful, responsive masonry grid. */

@@ -2,6 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import { css } from "@emotion/core"
 import { rhythm } from "../utils/typography"
+import ImageGallery from "../components/ImageGallery"
 import SEO from "../components/seo"
 import Layout from "../components/layout"
 
@@ -51,6 +52,19 @@ export default ({ data }) => {
             <p>{node.excerpt}</p>
           </div>
         ))}
+        <h2>Image Gallery</h2>
+        <p>
+          Here's a Gatsby site with optimized images in a masonry grid, served
+          from{" "}
+          <a
+            href="https:cloudinary.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Cloudinary
+          </a>
+        </p>
+        <ImageGallery />
       </article>
     </Layout>
   )

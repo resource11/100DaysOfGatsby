@@ -7,10 +7,14 @@
 // add support for .env file in `gastby-source-cloudinary`
 require("dotenv").config()
 
-// seems you need to set the path if you use `gatsby-transformer-cloudinary`
-// require("dotenv").config({
-//   path: `.env.${process.env.NODE_ENV}`,
-// })
+/* seems you need to set the path if you use `gatsby-transformer-cloudinary`
+   but also need the import above for `gatsby-source-cloudinary`
+   otherwise the dev build throws an error
+*/
+
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 
 module.exports = {
   siteMetadata: {
@@ -132,6 +136,15 @@ module.exports = {
         apiSecret: process.env.CLOUDINARY_API_SECRET,
         resourceType: `image`,
         prefix: `samples/`,
+      },
+    },
+    {
+      resolve: "gatsby-transformer-cloudinary",
+      options: {
+        cloudName: process.env.CLOUDINARY_CLOUD_NAME,
+        apiKey: process.env.CLOUDINARY_API_KEY,
+        apiSecret: process.env.CLOUDINARY_API_SECRET,
+        uploadFolder: "100-days-of-gatsby-cloudinary",
       },
     },
   ],

@@ -2,11 +2,20 @@ const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
+
+  // you only want to operate on `Md` nodes. If you had content from a
+  // remote CMS you could also check to see if the parent node was a
+  // `File` node here
   if (node.internal.type === `MarkdownRemark`) {
     const slug = createFilePath({ node, getNode, basePath: `pages` })
     createNodeField({
-      node,
+      // Name of the field you are adding
       name: `slug`,
+      // Individual MD node
+      node,
+      // Generated value based on files in the src/pages folder
+      // don't need a separating "/" before the value because
+      // createFilePath returns a path with the leading "/".
       value: slug,
     })
   }

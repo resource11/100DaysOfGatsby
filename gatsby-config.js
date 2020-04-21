@@ -4,6 +4,14 @@
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
 
+// add support for .env file in `gastby-source-cloudinary`
+require("dotenv").config()
+
+// seems you need to set the path if you use `gatsby-transformer-cloudinary`
+// require("dotenv").config({
+//   path: `.env.${process.env.NODE_ENV}`,
+// })
+
 module.exports = {
   siteMetadata: {
     title: `Pandas Eating Lots`,
@@ -116,5 +124,15 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `@pauliescanlon/gatsby-mdx-embed`,
     `gatsby-plugin-advanced-sitemap`,
+    {
+      resolve: `gatsby-source-cloudinary`,
+      options: {
+        cloudName: process.env.CLOUDINARY_CLOUD_NAME,
+        apiKey: process.env.CLOUDINARY_API_KEY,
+        apiSecret: process.env.CLOUDINARY_API_SECRET,
+        resourceType: `image`,
+        prefix: `samples/`,
+      },
+    },
   ],
 }

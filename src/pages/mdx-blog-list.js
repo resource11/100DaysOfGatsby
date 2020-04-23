@@ -28,6 +28,9 @@ export default ({ data }) => {
           </h1>
           <hr />
         </header>
+        <p>
+          This is a gathering of all the MDX files that exist in this project
+        </p>
         {data.allFile.edges.map(({ node }) => (
           <div key={node.id}>
             <h2

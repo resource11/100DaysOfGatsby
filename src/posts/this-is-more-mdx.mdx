@@ -7,9 +7,12 @@ featuredImage: ../images/disney-cruise-bar.jpg
 ---
 
 import { graphql } from "gatsby"
+import SEO from "../components/seo"
 import ThisIsMdx from "./this-is-mdx.mdx"
 
 export default ThisIsMdx
+
+<SEO title={props.pageContext.frontmatter.title} />
 
 <h1>Frontmatter title {props.pageContext.frontmatter.title}</h1>
 <p>Frontmatter author{props.pageContext.frontmatter.author}</p>
@@ -22,7 +25,7 @@ Yes you can! This page is an MDX file that is importing another MDX file. This p
 
 This page is also exporting metadata through a const and through a GraphQL export query. Need to double check this one.
 
-![Colorful group of umbrellas nestled on the soft tropical sands of Castaway Cay](../images/castaway-key-umbrellas-closeup.jpg)
+![Colorful group of umbrellas nestled on the soft tropical sands of Castaway Cay](https://res.cloudinary.com/kathleenmcmahon/image/upload/q_auto,f_auto/v1587501269/100-days-of-gatsby-cloudinary/castaway-key-umbrellas-closeup.jpg)
 
 ### And a CodePen embed
 

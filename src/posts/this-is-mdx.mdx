@@ -8,6 +8,7 @@ featuredImage: ../images/disney-cruise-bar.jpg
 ---
 
 import { graphql } from "gatsby"
+import SEO from "../components/seo"
 export const metadata = {
   title: "This is MDX",
   date: "2019-01-29",
@@ -15,6 +16,8 @@ export const metadata = {
   path: "/this-is-mdx",
   featuredImage: "../images/disney-cruise-bar.jpg",
 }
+
+<SEO title={metadata.title} />
 
 <h1>Metadata title is {metadata.title}</h1>
 <p>Metadata author is {metadata.author}</p>
@@ -24,9 +27,10 @@ export const metadata = {
 
 Yes you can! This page is an MDX file that is exporting metadata through a const and through a GraphQL export query. This page also uses a default export, so it won't take on the default layout set by the gatsby-config file.
 
-![Colorful group of umbrellas nestled on the soft tropical sands of Castaway Cay](../images/castaway-key-umbrellas-closeup.jpg)
+![Colorful group of umbrellas nestled on the soft tropical sands of Castaway Cay](https://res.cloudinary.com/kathleenmcmahon/image/upload/q_auto,f_auto/v1587501269/100-days-of-gatsby-cloudinary/castaway-key-cartoon-characters.jpg)
 
 <iframe
+  title="Ya Ya eating Banana"
   width="560"
   height="315"
   src="https://www.youtube.com/embed/4SZl1r2O_bY"

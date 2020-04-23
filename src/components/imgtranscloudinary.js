@@ -5,7 +5,7 @@ import Image from "gatsby-image"
 const ImageTransformCoudinary = () => {
   const data = useStaticQuery(graphql`
     query {
-      image: file(name: { eq: "castaway-key-umbrellas-closeup" }) {
+      image: file(name: { eq: "sfo-group-of-lanterns" }) {
         cloudinary: childCloudinaryAsset {
           fluid {
             ...CloudinaryAssetFluid
@@ -17,7 +17,7 @@ const ImageTransformCoudinary = () => {
 
   return (
     <div className="image-example">
-      <h2>Fluid images loaded from Cloudinary</h2>
+      <h2>Fluid image transformed by Cloudinary</h2>
       <Image
         fluid={data.image.cloudinary.fluid}
         alt="Castaway Cay lovely ocean view"

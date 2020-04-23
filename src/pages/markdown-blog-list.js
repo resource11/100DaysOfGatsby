@@ -28,6 +28,10 @@ export default ({ data }) => {
           </h1>
           <hr />
         </header>
+        <p>
+          This is a gathering of all the Markdown files that exist in this
+          project
+        </p>
         {data.allMarkdownRemark.edges.map(({ node }) => (
           <div key={node.id}>
             <h2

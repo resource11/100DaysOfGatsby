@@ -7,7 +7,7 @@ import Layout from "../components/layout"
 
 const dateColor = `purple`
 
-export default ({ data }) => {
+const MDXBlogList = ({ data }) => {
   console.log(data)
 
   return (
@@ -60,6 +60,8 @@ export default ({ data }) => {
     </Layout>
   )
 }
+
+export default MDXBlogList
 
 export const query = graphql`
   query {

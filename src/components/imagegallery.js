@@ -1,6 +1,7 @@
 import React from "react"
 import styles from "./imagegallery.module.css"
 import { useStaticQuery, graphql } from "gatsby"
+
 const ImageGallery = () => {
   const data = useStaticQuery(graphql`
     query CloudinaryImage {

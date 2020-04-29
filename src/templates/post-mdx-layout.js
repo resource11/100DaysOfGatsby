@@ -2,7 +2,7 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-export default ({ children, pageContext }) => {
+const PostMDXLayout = ({ children, pageContext }) => {
   return (
     <Layout>
       <SEO
@@ -19,3 +19,5 @@ export default ({ children, pageContext }) => {
     </Layout>
   )
 }
+
+export default PostMDXLayout

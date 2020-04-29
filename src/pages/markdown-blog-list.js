@@ -7,7 +7,7 @@ import Layout from "../components/layout"
 
 const dateColor = `purple`
 
-export default ({ data }) => {
+const MarkdownBlogList = ({ data }) => {
   console.log(data)
 
   return (
@@ -59,6 +59,8 @@ export default ({ data }) => {
     </Layout>
   )
 }
+
+export default MarkdownBlogList
 
 export const query = graphql`
   query {

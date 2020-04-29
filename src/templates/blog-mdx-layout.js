@@ -3,7 +3,7 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-export default ({ pageContext }) => {
+const BlogMDXLayout = ({ pageContext }) => {
   return (
     <Layout>
       <SEO
@@ -22,3 +22,5 @@ export default ({ pageContext }) => {
     </Layout>
   )
 }
+
+export default BlogMDXLayout

@@ -5,7 +5,7 @@ import { useStaticQuery, Link, graphql } from "gatsby"
 
 import { rhythm } from "../utils/typography"
 
-export default ({ children }) => {
+const Layout = ({ children }) => {
   const data = useStaticQuery(
     graphql`
       query {
@@ -55,3 +55,5 @@ export default ({ children }) => {
     </div>
   )
 }
+
+export default Layout

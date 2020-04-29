@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import SEO from "../components/seo"
 import Layout from "../components/layout"
 
-export default () => {
+const Success = () => {
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -30,3 +30,5 @@ export default () => {
     </Layout>
   )
 }
+
+export default Success

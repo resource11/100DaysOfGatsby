@@ -5,7 +5,7 @@ import Layout from "../components/layout"
 import SignupForm from "../components/signupForm"
 import Img from "gatsby-image"
 
-export default () => {
+const About = () => {
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -40,3 +40,5 @@ export default () => {
     </Layout>
   )
 }
+
+export default About

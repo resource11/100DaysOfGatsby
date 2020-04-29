@@ -6,7 +6,7 @@ import Img from "gatsby-image"
 
 // This is the template for MD files
 
-export default ({ data }) => {
+const BlogPost = ({ data }) => {
   const post = data.markdownRemark
   // find the fluid image
   let featuredImgFluid = post.frontmatter.featuredImage.childImageSharp.fluid
@@ -23,6 +23,8 @@ export default ({ data }) => {
     </Layout>
   )
 }
+
+export default BlogPost
 
 // This probably will not work because it is a page query, so we may have to do a static query here
 export const query = graphql`
